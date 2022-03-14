@@ -1,0 +1,28 @@
+{
+  "name": "mongek",
+  "version": "0.0.1",
+  "description": "package to marshal class to json (with decorator)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/test.js",
+    "testBuild": "npm run build && npm run test"
+  },
+  "keywords": [
+    "json",
+    "typescript",
+    "marshal",
+    "decorator",
+    "annotation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malma28/mongek.git"
+  },
+  "author": "Malma",
+  "license": "MIT"
+}
