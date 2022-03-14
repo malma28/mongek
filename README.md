@@ -63,5 +63,5 @@ console.log(mongek.marshal(item3));
 ```shell
 {"id":"item1","name":"Item 1","owner":"Malma","max_per_slot":10}
 {"id":"item2","name":"Item 2","max_per_slot":16}
-Uncaught Error: Field "name" is required
+Error: Field name is required
 ```

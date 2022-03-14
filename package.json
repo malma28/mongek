@@ -1,6 +1,6 @@
 {
   "name": "mongek",
-  "version": "0.0.2",
+  "version": "0.0.2-1",
   "description": "package to marshal class to json (with decorator)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
