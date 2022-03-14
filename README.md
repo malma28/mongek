@@ -33,13 +33,13 @@ If the field is required, then when it is marshalled and the field is empty (the
 import * as mongek from "mongek";
 
 class Item {
-    mongek.field("id", true)
+    @mongek.field("id", true)
     id: string;
-    mongek.field("name", true)
+    @mongek.field("name", true)
     name: string;
-    mongek.field("owner", false)
+    @mongek.field("owner", false)
     owner: string;
-    mongek.field("max_per_slot", true)
+    @mongek.field("max_per_slot", true)
     maxPerSlot: number;
 
     constructor(id: string, name: string, owner: string, maxPerSlot: number) {
@@ -64,4 +64,34 @@ console.log(mongek.marshal(item3));
 {"id":"item1","name":"Item 1","owner":"Malma","max_per_slot":10}
 {"id":"item2","name":"Item 2","max_per_slot":16}
 Error: Field name is required
+```
+
+## @ignored()
+This decorator is used to make the field not exist when the class is marshalled.
+
+**Example**
+```ts
+import * as mongek from "mongek";
+
+class Owner {
+    @mongek.field("id", true)
+    id: string;
+    @mongek.field("name", true)
+    name: string;
+    @mongek.ignored()
+    itemUsed: Item;
+
+    constructor(id: string, name: string, itemID: string) {
+        this.id = id;
+        this.name = name;
+        this.itemUser = Item.load(itemID);
+    }
+}
+
+let owner1 = new Owner("owner1", "Malma", "item1");
+console.log(mongek.marshal(owner1));
+```
+**Result**
+```shell
+{"id":"owner1","name":"Malma"}
 ```
